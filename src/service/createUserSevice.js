@@ -85,6 +85,25 @@ class CreateUserService {
 
         return await resultPost
     }
+
+
+    async executeGetPostById(data) {
+
+        if(!data){
+            throw new Error('Id nao informado em sua requisição')
+        }
+
+        if(data < 0){
+            throw new Error('Id nao é valido')
+        }
+
+        const userRepository =  UserRepository
+
+        const ResultGet = userRepository.getPostId(data)
+        
+        return await ResultGet
+
+    }
     
 }
 
